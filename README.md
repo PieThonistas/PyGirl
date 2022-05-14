@@ -15,7 +15,7 @@ Ella Svete, Katrina Hill, Michelle Salazar, Rachel Freeland
 <img src="assets/PyGirl.jpeg">
 
 ### Domain Modeling:
-
+<img src="![PyGirl _DM](https://user-images.githubusercontent.com/61945783/168405268-ae07f6ce-ed88-4dd4-b8ee-d79361109d28.jpeg)">
 ---
 
 ### Team Plan:
