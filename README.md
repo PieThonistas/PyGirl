@@ -197,3 +197,73 @@ keep track of what user got wrong. What will need to be saved?
 - Supabase<br>
 Twilio: Python tools<br>
 Core logic:<br>
+---
+### Software Requirements:
+
+**Vision:**<br>
+To create a virtual learning tool modeled after the childhood game, Hangman. This learning tool can be used to help a beginner Pythonista learn Python terminology and concepts via their mobile phone.
+
+**Pain point does this project solve:**<br>
+This tool will solve the problem of learning Python while on-the-go and in a fun, and learning it in a fun, exciting way. 
+
+**The why behind our product:**<br>
+This tool gives Python beginners the opporturnity to learn from anywhere and not be tied down to a desktop or laptop computer. In addition, it let's people know learning Python can be fun and interactive.
+
+**Scope (In/Out):**<br>
+IN - What will your product do<br>
+The tool will prompt the player for a letter to solve the puzzle.<br>
+It will let the user know if they guessed the correct or incorrect letter.<br>
+It will also prompt the user for another turn, get their status, or quit the game.<br>
+The tool will display whether the player or the bot won or loss.<br>
+This tool will give you the most prevalent Python terminology.<br>
+
+**OUT - What will your product not do.**<br>
+This tool will never be turned into an IOS or Android app.<br>
+It will never be a web app.<br>
+It will not teach you everything you need or want to know about Python.<br>
+It will not teach you to code in Python.<br>
+
+**Minimum Viable Project:**<br>
+The user should be able to start the  game.<br>
+Program generates a random “hidden”  word.<br>
+Tell the user if they got a correct  letter or not.<br>
+Display the hangman if user did not  guess the correct letter.<br>
+Prompt user to take another turn.<br>
+Display current status.<br>
+Prompt the user to play another game or  quit.<br>
+Display the hidden word.<br>
+
+**Stretch Goals:**<br>
+Play against a bot.<br>
+Display definition of word.<br>
+Player can pick different categories to play from.<br>
+Player can solve the puzzle at once.<br>
+
+**Functional Requirements:**<br>
+Player can type in a letter to guess the word.<br>
+Player can take another turn.<br>
+Player can get their status in the game.<br>
+Player can quit the game, if desired.<br>
+
+**Data Flow:**<br>
+Player asks for a definition and receives the definition.<br>
+Player makes a guess for a letter and receives a response whether letter is in the word or not.<br>
+The player has an option to enter the whole word to solve, then receives a response if they guessed the word correctly.<br>
+If guessed correctly, player can choose if they want to guess another word or end the game.<br>
+Player asks for status<br>
+Terminal displays that the player won.<br>
+Terminal displays that the bot won.<br>
+Player is presented with the question to play again or quit.<br>
+Player enters the letter “q” to quit the game.<br>
+Bot displays a message that player is quitting.<br>
+
+**Non-Functional Requirements (301 & 401 only):**<br>
+**Usability:**
+Player needs to have text messaging access.<br>
+Player needs to accept any carrier charges for text messages.<br>
+Player does not need to know Python or language specific terminology to play.<br>
+There is no log-in required to play.<br>
+
+**Security:**
+No secuity issues as there's no player data being collected.<br>
+There is no player data needed to play.<br>
