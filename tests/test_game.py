@@ -1,6 +1,6 @@
 import pytest
-from main_game.game import Game
-# from main_game.game import welcome_message
+from api.welcome import Game
+
 
 def test_class_exists():
   assert Game

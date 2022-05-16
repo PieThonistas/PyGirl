@@ -1,0 +1,22 @@
+function: A parameterized sequence of statements.
+   IDLE: Integrated development environment
+   lambda: They are a shorthand to create anonymous functions.
+   methods: A method is like a function, but it runs “on” an object.
+   tuple: Immutable, can contain mixed types.
+   Bumbershoot: This fun word is another word for “umbrella.”
+   Whippersnapper: You might her an older person call a young, overly confident person this long, wacky word.
+   Lollygag: This word describes a person that is messing around and doing something that isn’t useful.
+   Bamboozled: Someone who uses this word in a sentence is likely saying they were tricked into doing something.
+   Flabbergast: When you want to get across that you were shocked about something, you can use this.
+   Noob: This word is used when somebody is inexperienced in something, usually referring to the use of the internet or a video game.
+   Schmooze: This is when you talk in a way to someone where you try to impress them in a friendly and lively way.
+   Widdershins: This is a funny word that means something is moving in the wrong direction/counter-clockwise.
+   Flummoxed: This means you’re completely confused.
+   Flibbertigibbet: A person who is silly and irresponsible can be referred to as this.
+   Puggle: This is what you call a dog that is the mix of a beagle and a pug.
+   Gibberish: When someone is speaking in nonsense and with words that makes no sense, you use this word.
+   Skedaddle: This is another word that means “to run away.”
+   Hullabaloo: You can use this word the next time you hear a really loud noise.
+   Yitten: If you want to say that someone is frightened, use this word instead.
+   Doohickey: This is what you’d call a small object or gadget if you forgot its real name.
+   Doozy: This is something that is not normal.
