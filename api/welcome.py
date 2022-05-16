@@ -5,7 +5,7 @@ import requests
 from collections import Counter
 import random
 
-# sms text to user prompting a weclome messages and asking if they'd like to play a game of PyGirl
+# sms text to user prompting a welcome messages and asking if they'd like to play a game of PyGirl
 # y to play
 # q to not play
 
