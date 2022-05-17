@@ -15,6 +15,44 @@ questions = {
     "2": {"id": "2", "text": "_ _ _ _ _", "solution": "yitten"},
 }
 
+'''
+
+Guess a letter or solve the word
+
+_ _ _ _ _
+
+Incorrect guesses: 
+Guesses left: 6
+'''
+
+'''
+PyGirl.com/?id=1&letter=p&incorrect=lx
+'''
+
+'''
+Incorrect!
+Guess a letter or solve the word
+
+_ _ _ _ _
+
+Incorrect guesses: l x p
+Guesses left: 3
+'''
+
+'''
+PyGirl.com/?id=1&letter=d&incorrect=lxp
+'''
+
+'''
+Correct!
+Guess a letter or solve the word
+
+d _ _ _ _
+
+Incorrect guesses: l x p
+Guesses left: 3
+'''
+
 
 class handler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -24,11 +62,22 @@ class handler(BaseHTTPRequestHandler):
         query_string_list = parse.parse_qsl(url_components.query)
         dic = dict(query_string_list)
         id = dic["id"]
-        message = str(questions[id])
+        message = play_turn(dic) #represents one round, this function will return a string
         self.send_response(200)
         self.send_header("Content-type", "application/json")
         self.end_headers()
         self.wfile.write(message.encode())
+
+
+        # name = dic.get("id: 2")
+        # does dict.get id:2 exist if so, yes, otherwise no
+        # serverless function cannot have a counter, but you can incorporate counter here
+        # incorporate Vercel and Twillio
+        # make a request
+        # wait for a response
+        # respond
+        # can have a URL for each turn, response, and game status
+
 
 
 class Game:
