@@ -1,13 +1,10 @@
 from twilio.rest import Client
 
-# Your Account SID from twilio.com/console
-account_sid = "AC19c0d741b2194a37606facfd6009c227"
-# Your Auth Token from twilio.com/console
-auth_token  = "1b665411b368208fda630db1c96824b8"
+from api.creds import TWILIO_API_KEY, TWILIO_SID
 
 # TODO: look-up vercel command to hide tokens and sid
 
-client = Client(account_sid, auth_token)
+client = Client(TWILIO_SID, TWILIO_API_KEY)
 
 message = client.messages.create(
     to="+18058618738", 
