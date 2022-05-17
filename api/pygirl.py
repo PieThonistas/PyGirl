@@ -1,7 +1,7 @@
 import sys
 from http.server import BaseHTTPRequestHandler
-import urllib import parse
-import requests
+from urllib import parse
+# import requests 
 from collections import Counter
 import random
 
@@ -9,16 +9,36 @@ import random
 # y to play
 # q to not play
 
+questions={"1":{
+  "id":"1","text":"_ _ _ _ _", "solution":"doozy"
+},
+"2":{
+  "id":"2","text":"_ _ _ _ _", "solution":"yitten"}
+}
 
 class handler(BaseHTTPRequestHandler):
   def do_GET(self):
     s = self.path
     url_components = parse.urlsplit(s)
+    #get initial query by targeting http:../pygirl/user-response
     query_string_list = parse.parse_qsl(url_components.query)
     dic = dict(query_string_list)
+    id = dic['id']
+    message = str(questions[id])
+    self.send_response(200)
+    self.send_header('Content-type', 'application/json')
+    self.end_headers()
+    self.wfile.write(message.encode())
 
-    name = dic.get("id: 2")
-
+    # name = dic.get("id: 2")
+    #does dict.get id:2 exist if so, yes, otherwise no
+    #serverless function cannot have a counter, but you can incorporate counter here
+    #incorporate Vercel and Twillio
+    #make a request
+    #wait for a response
+    #respond
+    #can have a URL for each turn, response, and game status
+    
 
 
 
