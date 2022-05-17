@@ -31,7 +31,7 @@ from urllib import parse
 # d for definition
 # q to quit
 
-user_answer = "b"
+user_answer = "n"
 # with open("assets/library.txt") as library:
 #     words = library.read()
 
@@ -42,9 +42,15 @@ questions = {
         4: {"id": 4, "text": "_ _ _ _ _", "solution": "tuple"},
         5: {"id": 5, "text": "_ _ _ _ _ _ _ _ _ _ _", "solution": "bumbershoot"}
 }
-
-word = questions[1]["solution"]
-split_word = word.split("")
+#
+# word = questions[1]["solution"]
+# split_word = enumerate(word)
+# print(*split_word)
+# for i in enumerate(word):
+#     if i == user_answer:
+#         print("you are right!!")
+#     else:
+#         print("Wrong!")
 
 
 def user_response(user_answer_):
