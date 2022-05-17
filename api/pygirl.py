@@ -117,7 +117,29 @@ class Game:
             19: "init",
             20: "exception",
         }
-        self.attempts_allowed = 8
+        self.definition = {
+            1: "function definition",
+            2: "lambda definition",
+            3: "methods definition",
+            4: "tuple definition",
+            5: "bumbershoot definition",
+            6: "tree definition",
+            7: "recursion definition",
+            8: "class definition",
+            9: "object definition",
+            10: "stack definition",
+            11: "queue definition",
+            12: "kaggle definition",
+            13: "jupyter definition",
+            14: "pandas definition",
+            15: "enqueue definition",
+            16: "dequeue definition",
+            17: "serverless definition",
+            18: "automation definition",
+            19: "init definition",
+            20: "exception definition",
+        }
+        self.attempts_allowed = 6
         self.failed_attempts = 0
 
     def show_word_so_far(self, word, letters):
@@ -170,18 +192,22 @@ class Game:
                 )
                 # if word is complete, end game
                 if self.check_for_win(word, letters):
-                    print("Way to go! You won!")
+                    print(
+                        "Way to go! You won! The definition of + {id} is {self.definition[id]}"
+                    )
                     return
             else:
                 # admonish and show attempts remaining
                 self.failed_attempts += 1
                 # I need to figure out how to keep this message from printing when they get down to zero guesses remaining; show show that they lost if they get down to zero.
                 print(
-                    f"Sorry but you cannot pass go this time. {self.attempts_allowed - self.failed_attempts} guesses remaining. Your progress so far: { self.show_word_so_far(word, letters) }"
+                    f"Sorry but you cannot pass go at this time. {self.attempts_allowed - self.failed_attempts} guesses remaining. Your progress so far: { self.show_word_so_far(word, letters) }"
                 )
                 if self.failed_attempts >= self.attempts_allowed:
                     # This is a Transformers reference XD
-                    print("You've failed me for the last time Starscream!")
+                    print(
+                        "You've failed me for the last time Starscream! The definition of + {id} is {self.definition[id]}"
+                    )
                     return
 
 
