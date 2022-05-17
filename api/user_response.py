@@ -36,13 +36,16 @@ from urllib import parse
 # g to guess the word
 # d for definition
 # q to quit
-
 user_answer = ""
 correct_answer = "doozy"
-remaining_tries = 8
 
 
-def user_response():
+def user_response(user_answer):
+    remaining_tries = 8
     if user_answer != correct_answer:
         print("you're wrong")
-        remaining_tries = remaining_tries - 1
+        remaining_tries -= 1
+        print(f"You have {remaining_tries} remaining tries.")
+
+
+user_response(user_answer)
