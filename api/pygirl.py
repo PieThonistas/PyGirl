@@ -136,6 +136,16 @@ class Game:
         ]
         print(snake_imgs[wrong_guesses])
 
+    def show_pygirl(self, wrong_guesses):
+        pygirl_img = [
+            """
+            "%%%"
+           %(-_-)%
+            /) )Z
+             / \"
+           """,
+        ]
+
     def play(self):
         # prompt to see if they want to play
         print("Do you want to play a game?")
