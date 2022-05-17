@@ -68,6 +68,7 @@ class handler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(message.encode())
 
+
         # name = dic.get("id: 2")
         # does dict.get id:2 exist if so, yes, otherwise no
         # serverless function cannot have a counter, but you can incorporate counter here
@@ -76,6 +77,7 @@ class handler(BaseHTTPRequestHandler):
         # wait for a response
         # respond
         # can have a URL for each turn, response, and game status
+
 
 
 class Game:
@@ -102,7 +104,7 @@ class Game:
             19: "init",
             20: "exception",
         }
-        self.definition = {
+        self.definitions = {
             1: "function definition",
             2: "lambda definition",
             3: "methods definition",
@@ -150,6 +152,39 @@ class Game:
         else:
             return False
 
+    def show_snake(self, wrong_guesses):
+        snake_imgs = [
+            '''
+        "xxxx -=: xxxxx"''',
+            """
+                        ________
+                xxxx -=:___________  xxxxx""",
+            """
+                        ________/   /
+                xxxx -=:___________/ xxxxx""",
+            """
+                       \\
+                        \    /
+                ________/   /
+        xxxx -=:___________/ xxxxx""",
+            """
+                         _____
+                       /  0 0 \\
+                       \\
+                        \    /
+                ________/   /
+        xxxx -=:___________/ xxxxx""",
+            """
+                         _____
+                       /  0 0 \\
+                       \    --------<
+                        \    /
+                ________/   /
+        xxxx -=:___________/ xxxxx
+        """,
+        ]
+        print(snake_imgs[wrong_guesses])
+
     def play(self):
         # prompt to see if they want to play
         print("Do you want to play a game?")
@@ -161,11 +196,12 @@ class Game:
         # pick random word. Their guess must be 1 letter long.
         id = random.randint(1, len(self.questions))
         word = self.questions[id]
+        print(self.show_word_so_far(word, set()))
         # print(f"it's a secret: {word}")
         letters = set()
         # while game loop
         while True:
-            response = input("What is your guess? >")
+            response = input("\n What is your guess? >")
             # validate user input. Their guess must be 1 letter long.
             while len(response) != 1:
                 response = input("Invalid input. What is your guess? >")
@@ -178,22 +214,29 @@ class Game:
                 # if word is complete, end game
                 if self.check_for_win(word, letters):
                     print(
-                        "Way to go! You won! The definition of + {id} is {self.definition[id]}"
+                        f"Way to go! You won! The definition of {self.questions[id]} is {self.definitions[id]}"
                     )
                     return
             else:
                 # admonish and show attempts remaining
                 self.failed_attempts += 1
                 # I need to figure out how to keep this message from printing when they get down to zero guesses remaining; show show that they lost if they get down to zero.
-                print(
-                    f"Sorry but you cannot pass go at this time. {self.attempts_allowed - self.failed_attempts} guesses remaining. Your progress so far: { self.show_word_so_far(word, letters) }"
-                )
+
                 if self.failed_attempts >= self.attempts_allowed:
                     # This is a Transformers reference XD
                     print(
-                        "You've failed me for the last time Starscream! The definition of + {id} is {self.definition[id]}"
+                        f"You've failed me for the last time Starscream! The definition of {self.questions[id]} is {self.definitions[id]}"
                     )
                     return
+                else:
+                    self.show_snake(self.failed_attempts)
+                    print(
+                        f"Sorry but you cannot pass go this time. {self.attempts_allowed - self.failed_attempts} guesses remaining. Your progress so far: { self.show_word_so_far(word, letters) }"
+                    )
+
+    def game_state(incorrect_answers):
+        if incorrect_answers == 1:
+            print
 
 
 g = Game()
