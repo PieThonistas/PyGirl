@@ -12,10 +12,10 @@ Ella Svete, Katrina Hill, Michelle Salazar, Rachel Freeland
 **github:** https://github.com/PieThonistas
 
 ### Wireframe:
-<img src="assets/PyGirl.jpeg">
+<img src="img/PyGirl.jpeg">
 
 ### Domain Modeling:
-<img src="assets/PyGirl _DM.jpeg">
+<img src="img/PyGirl _DM.jpeg">
 ---
 
 ### Team Plan:

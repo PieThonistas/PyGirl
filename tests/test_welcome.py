@@ -1,5 +1,5 @@
 import pytest
-from api.welcome import Game
+from api.pygirl import Game
 
 
 def test_class_exists():
