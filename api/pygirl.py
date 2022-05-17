@@ -15,6 +15,44 @@ questions = {
     "2": {"id": "2", "text": "_ _ _ _ _", "solution": "yitten"},
 }
 
+'''
+
+Guess a letter or solve the word
+
+_ _ _ _ _
+
+Incorrect guesses: 
+Guesses left: 6
+'''
+
+'''
+PyGirl.com/?id=1&letter=p&incorrect=lx
+'''
+
+'''
+Incorrect!
+Guess a letter or solve the word
+
+_ _ _ _ _
+
+Incorrect guesses: l x p
+Guesses left: 3
+'''
+
+'''
+PyGirl.com/?id=1&letter=d&incorrect=lxp
+'''
+
+'''
+Correct!
+Guess a letter or solve the word
+
+d _ _ _ _
+
+Incorrect guesses: l x p
+Guesses left: 3
+'''
+
 
 class handler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -24,7 +62,7 @@ class handler(BaseHTTPRequestHandler):
         query_string_list = parse.parse_qsl(url_components.query)
         dic = dict(query_string_list)
         id = dic["id"]
-        message = str(questions[id])
+        message = play_turn(dic) #represents one round, this function will return a string
         self.send_response(200)
         self.send_header("Content-type", "application/json")
         self.end_headers()
@@ -38,59 +76,6 @@ class handler(BaseHTTPRequestHandler):
         # wait for a response
         # respond
         # can have a URL for each turn, response, and game status
-
-
-# class Game:
-#   print("hello")
-
-#   def __init__(self):
-#     pass
-
-#   def welcome_message(self):
-#     # the user_answer starts the game; at the beginning the user doesn't guess.
-#     print("Welcome to PyGirl! Want to play a word game?")
-#     response = input("(y)es to play or (n)o to decline")
-#     response.toLowerCase
-#     if response == "n":
-#       print("Maybe next time!")
-#       sys.exit()
-#     if response == "y":
-#       print("Let's play!")
-#     # some functionality to begin game
-
-#   def yes_to_play(self):
-#     # user_answer = "y"
-#     # randomize
-#     pass
-
-# if __name__ == "__main__":
-#     game = Game()
-#     game.welcome_message()
-#     game.yes_to_play()
-
-
-# # this is the answer we're looking for
-# correct_answer = "PYTHON"
-# # this is the number of tries left. Wrong letters.
-# remaining_tries = 10
-# # state of the game at the beginning
-# game_state = "IN PROGRESS"
-# while user_answer != correct_answer:
-#     # ask the user for another letter
-#     if guess not in correct_answer:
-#         remaining_tries = remaining_tries -1
-#     else:
-#         # update user_answer so it includes the correct letter guess
-# otherwise:
-#     if user_answer == correct_answer:
-#         game over
-#         game_state = "YOU WIN"
-#     if the snake is complete:
-#         game over
-#         game_state = "YOU LOSE"
-# if game_state != "IN PROGRESS":
-#     game over --> user or pygirl won or loss
-#         # go back to main menu (start another game, quit)
 
 
 class Game:
