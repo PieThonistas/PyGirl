@@ -1,6 +1,7 @@
 from mimetypes import guess_all_extensions
 import sys
 from http.server import BaseHTTPRequestHandler
+from turtle import position
 from urllib import parse
 # import requests
 from collections import Counter
@@ -53,21 +54,20 @@ Guesses left: 6
 '''
 def game_turn(id_, guessed_letter, wrong_letters, guess_attempts=0):
   #TODO: figureout how to update game_id instead of idx for library
-  #TODO: attempts left counter is not working
-  #TODO: word spaces _ _ _
   #TODO: wrong letters not tracking 
-  #TODO: word displays first letter all the time
 
   output = f"Game {id_}"
   correct = is_correct_letter(id_, guessed_letter)
+ 
   if correct:
     output += "\nYou're correct! \n"
   else:
-    output += "\n You've guessed an incorrect letter, \n Try Again! \n"
+    output += "\n You've guessed an incorrect letter. \n Try Again! \n"
+  word_in_progress = get_word_in_progress(id_, guessed_letter)
 
-  word_in_progress = get_word_in_progress(id_, wrong_letters)
   wrong_guesses = get_incorrect_guesses(id_, guessed_letter, wrong_letters)
-  guesses_left = get_guesses_left(id_, wrong_letters)
+
+  guesses_left = get_guesses_left(id_, guessed_letter)
 
   return output + word_in_progress + wrong_guesses + guesses_left
 
@@ -84,13 +84,17 @@ def is_correct_letter(id_, guessed_letter):
 def get_word_in_progress(id_, guessed_letter):
   # show the correctly guessed letters in the word
   word = words[id_]
-  message = ""
-  for guessed_letter in word:
-    if guessed_letter in word:
-      message += f"{guessed_letter}"
+  message=""
+
+  for character in word:
+    if character == guessed_letter:
+      message += f"{guessed_letter} "
     else:
       message += "_ "
-    return f"{message}\n" 
+
+  return f"{message} \n" 
+
+
 
 def get_incorrect_guesses(id_, guessed_letter, wrong_letters):
   # tracks incorrect letters
@@ -99,22 +103,24 @@ def get_incorrect_guesses(id_, guessed_letter, wrong_letters):
   message = ""
   for character in guessed_letter:
     if character not in word:
-      message += f"{character} "
+      message += f"Guessed Letters: {character} "
       message += wrong_letters
   return message + wrong_letters
 
+  
+
 def get_guesses_left(id_, guessed_letter):
-  # counter for # of attempts minus incorrect guesses
-  max_attempts = 10
-  word = words[id_]
   counter = 0
+  word = words[id_]
+  max_attempts = 10
   guesses_left = 0
-  for character in guessed_letter:
-    if character not in word:
+
+  if guessed_letter not in word:
       counter += 1
+
   guesses_left = max_attempts - counter
 
-  return f" Attempts left: {guesses_left}"
+  return f" \nAttempts left: {guesses_left}"
     
 
 def start_game(id_, guessed_letter):
@@ -144,7 +150,6 @@ PyGirl.com/?id_=1&letter=p&incorrect=lx
 
 #runs game
 if __name__ == "__main__":
-   response = game_turn(id_=3, guessed_letter="y", wrong_letters="", guess_attempts="")
-   print(response)
-
-
+   response = game_turn(id_=3, guessed_letter="z", wrong_letters="", guess_attempts="")
+  # response = get_word_in_progress(3, "s")
+print(response)
