@@ -8,7 +8,6 @@ ENV/
 .history
 vercel
 .venv
-creds.py
 .env
 
 
