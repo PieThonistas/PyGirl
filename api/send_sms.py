@@ -2,7 +2,6 @@ from twilio.rest import Client
 
 from api.creds import TWILIO_API_KEY, TWILIO_SID
 
-# TODO: look-up vercel command to hide tokens and sid
 
 client = Client(TWILIO_SID, TWILIO_API_KEY)
 
