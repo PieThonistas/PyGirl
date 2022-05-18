@@ -8,6 +8,7 @@ ENV/
 .history
 vercel
 .venv
+creds.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
