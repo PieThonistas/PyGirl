@@ -92,6 +92,7 @@ def start_game():
   for character in word:
     unsolved_word += "_ "
   tries_left = 6
+  
   return f''' Game {id}
 
 Guess a letter or solve the word
@@ -102,9 +103,8 @@ Incorrect guesses:
 Guesses left: {tries_left}
 '''
 
-'''
-PyGirl.com/?id=1&letter=p&incorrect=lx
-'''
+
+
 
 if __name__ == "__main__":
    response = game_turn(1, "x", "")
