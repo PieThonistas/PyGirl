@@ -1,12 +1,15 @@
-# PyGirl 
-## GroupName: 
+# PyGirl
+
+## GroupName:
+
 PieThonistas
+
 ## Members: 
+
 Ella Svete, Katrina Hill, Michelle Salazar, Rachel Freeland
+
 ## 401 Midterm
 
-
----
 ### Project Links:
 
 **Trello:** https://trello.com/b/wHD3YEbn/piethonistas-hangman
@@ -16,15 +19,18 @@ Ella Svete, Katrina Hill, Michelle Salazar, Rachel Freeland
 **github:** https://github.com/PieThonistas
 
 ### Wireframe:
+
 <img src="img/PyGirl.jpeg">
 
 ### Domain Modeling:
+
 <img src="img/PyGirl _DM.jpeg">
----
 
 ### Team Plan:
-**Cooperation Plan**<br>
-Every person on your team is an asset. This is your chance to discover the hidden strengths and areas for growth for each team member.<br>
+
+**Cooperation Plan**
+
+- Every person on your team is an asset. This is your chance to discover the hidden strengths and areas for growth for each team member.
 
 Describe at least:
 

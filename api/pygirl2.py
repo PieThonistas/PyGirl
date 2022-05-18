@@ -133,6 +133,7 @@ def start_game(id_, guessed_letter):
   tries_left = 6
   return f''' Game {id_}
 
+
 Guess a letter or solve the word
 
 {unsolved_word}
@@ -143,10 +144,12 @@ Guesses left: {tries_left}
 '''
 
 
+
 #possible link
 '''
 PyGirl.com/?id_=1&letter=p&incorrect=lx
 '''
+
 
 #runs game
 if __name__ == "__main__":
