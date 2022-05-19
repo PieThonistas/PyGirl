@@ -1,4 +1,5 @@
 from http.server import BaseHTTPRequestHandler
+from traceback import format_exc
 from urllib import parse
 from collections import Counter
 import random
@@ -120,8 +121,30 @@ def get_guesses_left(id_, guessed_letter):
     return f" \nAttempts left: {guesses_left} \n"
 
 
+def is_game_won(game_data):
+    word = words[game_data["id"]]
+    for character in word:
+        if not character in game_data["guesses"]:
+            return False
+    return True
+
+
+def is_game_lost(game_data):
+    word = words[game_data["id"]]
+    max_attempts = 10
+    incorrect_counter = 0
+    guesses = game_data["guesses"]
+    for character in guesses:
+        if not character in word:
+            incorrect_counter += 1
+    if incorrect_counter >= max_attempts:
+        return True
+    else:
+        return False
+
+
 def start_game():
-    id_ = 1  # TODO: randomize
+    id_ = random.randint(1, len(words))
     game_data = {}
     game_data["id"] = id_
     game_data["status"] = "start"
@@ -154,3 +177,19 @@ def start_game():
 
 #     # turn2 = game_turn(id_=3, guessed_letter="e", used_letters="m")
 #     # print(turn2)
+
+test_game_data = {"id": 1, "status": "start", "guesses": "function"}
+
+print(is_game_won(test_game_data))  # should return true
+
+test_game_data = {"id": 1, "status": "start", "guesses": "wrong"}
+
+print(is_game_won(test_game_data))  # should return false
+
+test_game_data = {"id": 1, "status": "start", "guesses": "abcde"}
+
+print(is_game_lost(test_game_data))  # should return false
+
+test_game_data = {"id": 1, "status": "start", "guesses": "abdeghklmp"}
+
+print(is_game_lost(test_game_data))  # should return true
