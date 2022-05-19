@@ -54,12 +54,16 @@ Guesses left: 6
 def game_turn(id_, guessed_letter, used_letters):
   #TODO: figure out how to update game_id instead of idx for library
   #TODO: id_ needs to be setup to randomize number from 1-20 at game initiation
+  #TODO: incorporate snake in wrong responses, Add pygirl images, pygirl lost, and pygirl won
+  #TODO: prompts for quit and solve
+  #TODO: STRETCH: At end of game, give definition of word
+  #TODO: Create a function for Losing game, create a function for pygirl wins game
 
-  output = f"\nGame {id_}\n"
+  output = f"\nGame {id_}\n" 
   correct = is_correct_letter(id_, guessed_letter)
  
   if correct:
-    output += "\nYou're correct! \n\n"
+    output += "\nYou're correct! \n\n "
   else:
     output += "\n You've guessed an incorrect letter. \n Try Again! \n\n"
 
@@ -92,8 +96,7 @@ def get_word_in_progress(id_, guessed_letter, used_letters):
     else:
       message += "_ "
 
-  return f"{message} \n" 
-
+  return f"{message} \n"
 
 
 def get_incorrect_guesses(id_, guessed_letter, used_letters):
@@ -105,6 +108,9 @@ def get_incorrect_guesses(id_, guessed_letter, used_letters):
     if character not in word:
       message += f"\nGuessed Letters: {character} \n "
       message += used_letters
+    else:
+      if character in word:
+        message += f"\nGuessed Letters: {used_letters} \n "
   return message + used_letters
 
 
@@ -149,13 +155,13 @@ PyGirl.com/?id_=1&letter=p&incorrect=lx
 
 
 if __name__ == "__main__":
-    start = start_game()
-    print(start)
+    # start = start_game()
+    # print(start)
     # turn0 = start_game(id_="", guessed_letter="")
     # print(turn0)
 
-    # turn1 = game_turn(id_=3, guessed_letter="m", used_letters="")
-    # print(turn1)
+    turn1 = game_turn(id_=3, guessed_letter="m", used_letters="")
+    print(turn1)
 
     # turn2 = game_turn(id_=3, guessed_letter="e", used_letters="m")
     # print(turn2)
