@@ -16,9 +16,9 @@ Ella Svete, Katrina Hill, Michelle Salazar, Rachel Freeland
 
 **Vercel:** https://py-girl-oygew4mkj-piethonistas.vercel.app/api/pygirl
 
-- Twilio number: +19207969278
-
 **github:** https://github.com/PieThonistas
+
+**Presentation:**https://docs.google.com/presentation/d/1Kw_yGqmRB4w6tp9e6dTCNmO65lKb3KGPHHph8ZmbPP4/edit#slide=id.g2accd1c413_3_31
 
 ### Wireframe:
 
