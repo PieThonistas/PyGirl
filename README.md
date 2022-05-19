@@ -14,6 +14,8 @@ Ella Svete, Katrina Hill, Michelle Salazar, Rachel Freeland
 
 **Trello:** https://trello.com/b/wHD3YEbn/piethonistas-hangman
 
+**Vercel:** https://py-girl-oygew4mkj-piethonistas.vercel.app/api/pygirl
+
 - Twilio number: +19207969278
 
 **github:** https://github.com/PieThonistas
