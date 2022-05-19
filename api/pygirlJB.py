@@ -57,6 +57,7 @@ def render_game_info(id_, prompt, unsolved_word, incorrect_guesses, tries_left):
     pyscript.write("tries-left", tries_left)
 
 
+
 def render_buttons(guesses):
     """
     Go through alphabet and make button for any unused letters
