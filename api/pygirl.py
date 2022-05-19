@@ -92,6 +92,47 @@ def get_word_in_progress(id_, guessed_letter, used_letters):
 
     return f"{message} \n"
 
+def get_snake_image(id_, used_letters):
+        snakes = [
+            "xxxx -=: xxxxx",
+            """        ________
+                xxxx -=:___________  xxxxx""",
+            """         ________/   /
+                xxxx -=:___________/ xxxxx""",
+            """
+                    \\
+                        \    /
+                ________/   /
+        xxxx -=:___________/ xxxxx""",
+            """        _____
+                    /  0 0 \\
+                    \\
+                        \    /
+                ________/   /
+        xxxx -=:___________/ xxxxx
+        """,
+            """        _____
+                     /  0 0 \\
+                    \    --------<
+                        \    /
+                ________/   /
+        xxxx -=:___________/ xxxxx
+        """
+        ]
+        incorrect = get_incorrect_count(id_, used_letters)
+        if incorrect > 0:
+            return f"\n\n{snakes[incorrect - 1]}\n\n"
+        else:
+            return ""
+       
+def get_incorrect_count(id_, used_letters):
+        word = words[id_]
+        counter = 0
+        for letter in used_letters:
+            if not letter in word:
+                counter += 1
+        return counter
+
 
 def get_incorrect_guesses(id_, guessed_letter, used_letters):
     # tracks incorrect letters
@@ -167,29 +208,30 @@ def start_game():
 # Guesses left: {tries_left}
 
 # if __name__ == "__main__":
-#     # start = start_game()
-#     # print(start)
-#     # turn0 = start_game(id_="", guessed_letter="")
-#     # print(turn0)
+#     start = get_incorrect_count(1, "m")
+#     print(start)
+    # turn0 = start_game(id_="", guessed_letter="")
+    # print(turn0)
 
-#     turn1 = game_turn(id_=3, guessed_letter="m", used_letters="")
-#     print(turn1)
+    # turn1 = game_turn(id_=3, guessed_letter="y", used_letters="")
+    # print(turn1)
 
-#     # turn2 = game_turn(id_=3, guessed_letter="e", used_letters="m")
-#     # print(turn2)
+    # turn2 = game_turn(id_=3, guessed_letter="e", used_letters="m")
+    # print(turn2)
 
-test_game_data = {"id": 1, "status": "start", "guesses": "function"}
+# test_game_data = {"id": 1, "status": "start", "guesses": "function"}
 
-print(is_game_won(test_game_data))  # should return true
+# print(is_game_won(test_game_data))  # should return true
 
-test_game_data = {"id": 1, "status": "start", "guesses": "wrong"}
+# test_game_data = {"id": 1, "status": "start", "guesses": "wrong"}
 
-print(is_game_won(test_game_data))  # should return false
+# print(is_game_won(test_game_data))  # should return false
 
-test_game_data = {"id": 1, "status": "start", "guesses": "abcde"}
+# test_game_data = {"id": 1, "status": "start", "guesses": "abcde"}
 
-print(is_game_lost(test_game_data))  # should return false
+# print(is_game_lost(test_game_data))  # should return false
 
-test_game_data = {"id": 1, "status": "start", "guesses": "abdeghklmp"}
+# test_game_data = {"id": 1, "status": "start", "guesses": "abdeghklmp"}
 
-print(is_game_lost(test_game_data))  # should return true
+# print(is_game_lost(test_game_data))  # should return true
+print(get_snake_image(1, "abcdefg"))
