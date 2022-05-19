@@ -1,9 +1,18 @@
+
 # from http.server import BaseHTTPRequestHandler
 from pyodide.http import pyFetch
 import asyncio
 import string
 
 pyscript = pyscript
+
+prompts = {
+    "Start": "Guess a letter to solve the word",
+    "Incorrect": "Wrong!! Guess again!",
+    "Correct": "Good job! Keep it up",
+    "Winner": "Smarty pants!! Good work!",
+    "Defeat": "Better luck next time"
+}
 
 url = "https://py-girl-self.vercel.app/api/pygirl"
 game_data = None
