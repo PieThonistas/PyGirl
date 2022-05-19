@@ -142,7 +142,6 @@ Incorrect guesses: ***
 Guesses left: {tries_left}
 '''
 
-
 #possible link
 '''
 PyGirl.com/?id_=1&letter=p&incorrect=lx
