@@ -1,6 +1,6 @@
 from genericpath import exists
 import pytest
-from api.pygirl import start_game, get_guesses_left, get_incorrect_guesses, get_word_in_progress, game_turn
+from api.pygirl import start_game, get_guesses_left, get_incorrect_guesses, get_word_in_progress, game_turn, is_correct_letter
 
 def test_start_game_exists():
     assert start_game
@@ -20,29 +20,23 @@ def test_starts_game():
 
 #TODO: edgecase testing
 
-def test_starts():
+def test_starts_guesses_empty():
     value = start_game()['guesses']
-    expected = 0
-    assert value != expected
+    expected = ""
+    assert value == expected
 
-# def test_no_more_word():
-#     value = get_incorrect_guesses[id_,"q", used]
-#     letter_guessed = "q"
-#     letter_guessed = "w"
-#     letter_guessed = "z"
-#     letter_guessed = "x"
-#     letter_guessed = "q"
-#     letter_guessed = "x"
-#     expected = 0
-#     assert value != expected
+def test_guess_incorrect():
+    value = is_correct_letter(1, "y")
+    expected = False
+    assert value == expected
 
+def test_guess_correct():
+    value = is_correct_letter(1, "c")
+    expected = True
+    assert value == expected
 
-# def test_game_data():
-#     TODO:test game_data when all code is completed
-#     id_ = game_data["id"]
-#     unsolved_word = game_data["working_word"]
-#     status = game_data["status"]
-#     guesses = game_data["guesses"]
-#     value = Game.welcome_message("y")
-#     expected = "Let's play!"
-#     assert value == expected
+def test_guess_correct():
+    # guesses of none, pass in 1, f, _ _ _ _
+    value = is_correct_letter(1, "c")
+    expected = True
+    assert value == expected
