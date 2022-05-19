@@ -2,6 +2,13 @@ from http.server import BaseHTTPRequestHandler
 from urllib import parse
 from api.pygirl import game_turn, start_game
 
+prompts = {
+    "Start": "Guess a letter to solve the word",
+    "Incorrect": "Wrong!! Guess again!",
+    "Correct": "Good job! Keep it up",
+    "Winner": "Smarty pants!! Good work!",
+    "Defeat": "Better luck next time"
+}
 
 class handler(BaseHTTPRequestHandler):
     def do_GET(self):
