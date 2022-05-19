@@ -3,7 +3,6 @@ import sys
 from http.server import BaseHTTPRequestHandler
 from turtle import position
 from urllib import parse
-# import requests
 from collections import Counter
 import random
 
@@ -122,12 +121,12 @@ def get_guesses_left(id_, guessed_letter):
   return f" \nAttempts left: {guesses_left} \n"
     
 
-def start_game(id_, guessed_letter):
+def start_game():
   #initiates first round
   id_ = 1
   word = words[id_]
   unsolved_word = ""
-  for guessed_letter in word:
+  for character in word:
     unsolved_word += "_ "
   tries_left = 6
   return f''' 
@@ -150,12 +149,14 @@ PyGirl.com/?id_=1&letter=p&incorrect=lx
 
 
 if __name__ == "__main__":
-    turn0 = start_game(id_="", guessed_letter="")
-    print(turn0)
+    start = start_game()
+    print(start)
+    # turn0 = start_game(id_="", guessed_letter="")
+    # print(turn0)
 
-    turn1 = game_turn(id_=3, guessed_letter="m", used_letters="")
-    print(turn1)
+    # turn1 = game_turn(id_=3, guessed_letter="m", used_letters="")
+    # print(turn1)
 
-    turn2 = game_turn(id_=3, guessed_letter="e", used_letters="m")
-    print(turn2)
+    # turn2 = game_turn(id_=3, guessed_letter="e", used_letters="m")
+    # print(turn2)
 
