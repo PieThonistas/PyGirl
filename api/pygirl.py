@@ -53,10 +53,10 @@ Guesses left: 6
 
 def game_turn(id_, guessed_letter, used_letters):
     game_data = {
-        "id": id_,
+        "id": id,
     }
 
-    correct = is_correct_letter(id_, guessed_letter)
+    correct = is_correct_letter(id, guessed_letter)
 
     if correct:
         game_data["status"] = "correct"
@@ -64,7 +64,6 @@ def game_turn(id_, guessed_letter, used_letters):
         game_data["status"] = "incorrect"
 
     game_data["working_word"] = get_word_in_progress(id_, guessed_letter, used_letters)
-
     game_data["guesses"] = used_letters + guessed_letter
 
     return game_data
@@ -72,7 +71,7 @@ def game_turn(id_, guessed_letter, used_letters):
 
 def is_correct_letter(id_, guessed_letter):
     # is the letter they guessed in the word to solve
-    word = words[id_]
+    word = words[id]
     if guessed_letter in word:
         return True
     else:
@@ -92,51 +91,10 @@ def get_word_in_progress(id_, guessed_letter, used_letters):
 
     return f"{message} \n"
 
-def get_snake_image(id_, used_letters):
-        snakes = [
-            "xxxx -=: xxxxx",
-            """        ________
-                xxxx -=:___________  xxxxx""",
-            """         ________/   /
-                xxxx -=:___________/ xxxxx""",
-            """
-                    \\
-                        \    /
-                ________/   /
-        xxxx -=:___________/ xxxxx""",
-            """        _____
-                    /  0 0 \\
-                    \\
-                        \    /
-                ________/   /
-        xxxx -=:___________/ xxxxx
-        """,
-            """        _____
-                     /  0 0 \\
-                    \    --------<
-                        \    /
-                ________/   /
-        xxxx -=:___________/ xxxxx
-        """
-        ]
-        incorrect = get_incorrect_count(id_, used_letters)
-        if incorrect > 0:
-            return f"\n\n{snakes[incorrect - 1]}\n\n"
-        else:
-            return ""
-       
-def get_incorrect_count(id_, used_letters):
-        word = words[id_]
-        counter = 0
-        for letter in used_letters:
-            if not letter in word:
-                counter += 1
-        return counter
 
-
-def get_incorrect_guesses(id_, guessed_letter, used_letters):
+def get_incorrect_guesses(id, guessed_letter, used_letters):
     # tracks incorrect letters
-    word = words[id_]
+    word = words[id]
     used_letters = ""
     message = ""
     for character in guessed_letter:
@@ -159,7 +117,7 @@ def get_guesses_left(id_, guessed_letter):
         counter += 1
 
     guesses_left = max_attempts - counter
-    return f" \nAttempts left: {guesses_left} \n"
+    return f" \nAttempts left: {guesses_left} + \n"
 
 
 def is_game_won(game_data):
@@ -186,10 +144,7 @@ def is_game_lost(game_data):
 
 def start_game():
     id_ = random.randint(1, len(words))
-    game_data = {}
-    game_data["id"] = id_
-    game_data["status"] = "start"
-    game_data["guesses"] = ""
+    game_data = {"id": id, "status": "start", "guesses": ""}
     word = words[id_]
     unsolved_word = ""
     for character in word:
@@ -197,41 +152,3 @@ def start_game():
     game_data["working_word"] = unsolved_word
 
     return game_data
-
-
-# Guess a letter or solve the word
-
-# {unsolved_word}
-
-# Incorrect guesses: ***
-
-# Guesses left: {tries_left}
-
-# if __name__ == "__main__":
-#     start = get_incorrect_count(1, "m")
-#     print(start)
-    # turn0 = start_game(id_="", guessed_letter="")
-    # print(turn0)
-
-    # turn1 = game_turn(id_=3, guessed_letter="y", used_letters="")
-    # print(turn1)
-
-    # turn2 = game_turn(id_=3, guessed_letter="e", used_letters="m")
-    # print(turn2)
-
-# test_game_data = {"id": 1, "status": "start", "guesses": "function"}
-
-# print(is_game_won(test_game_data))  # should return true
-
-# test_game_data = {"id": 1, "status": "start", "guesses": "wrong"}
-
-# print(is_game_won(test_game_data))  # should return false
-
-# test_game_data = {"id": 1, "status": "start", "guesses": "abcde"}
-
-# print(is_game_lost(test_game_data))  # should return false
-
-# test_game_data = {"id": 1, "status": "start", "guesses": "abdeghklmp"}
-
-# print(is_game_lost(test_game_data))  # should return true
-print(get_snake_image(1, "abcdefg"))

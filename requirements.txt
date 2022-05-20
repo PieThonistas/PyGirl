@@ -1,5 +1,5 @@
 attrs==21.4.0
-certifi==2021.10.8
+certifi==2022.5.18.1
 charset-normalizer==2.0.12
 idna==3.3
 iniconfig==1.1.1
@@ -13,5 +13,5 @@ python-dotenv==0.20.0
 pytz==2022.1
 requests==2.27.1
 tomli==2.0.1
-twilio==7.9.0
+twilio==7.9.1
 urllib3==1.26.9
