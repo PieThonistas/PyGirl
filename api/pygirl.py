@@ -53,15 +53,21 @@ Guesses left: 6
 
 def game_turn(id_, guessed_letter, used_letters):
     game_data = {
-        "id": id,
+        "id": id_,
+        "guesses": used_letters
     }
 
-    correct = is_correct_letter(id, guessed_letter)
+    correct = is_correct_letter(id_, guessed_letter)
 
-    if correct:
-        game_data["status"] = "correct"
-    else:
-        game_data["status"] = "incorrect"
+    if is_game_won(id_, used_letters) == True:
+        game_data["status"] = "victory"
+    if is_game_lost(id_, used_letters) == True:
+        game_data["status"] = "defeat"
+    else: 
+        if correct:
+            game_data["status"] = "correct"
+        else:
+            game_data["status"] = "incorrect"
 
     game_data["working_word"] = get_word_in_progress(id_, guessed_letter, used_letters)
     game_data["guesses"] = used_letters + guessed_letter
@@ -71,7 +77,7 @@ def game_turn(id_, guessed_letter, used_letters):
 
 def is_correct_letter(id_, guessed_letter):
     # is the letter they guessed in the word to solve
-    word = words[id]
+    word = words[id_]
     if guessed_letter in word:
         return True
     else:
@@ -120,19 +126,19 @@ def get_guesses_left(id_, guessed_letter):
     return f" \nAttempts left: {guesses_left} + \n"
 
 
-def is_game_won(game_data):
-    word = words[game_data["id"]]
+def is_game_won(id_, used_letters):
+    word = words[id_]
     for character in word:
-        if not character in game_data["guesses"]:
+        if not character in used_letters:
             return False
     return True
 
 
-def is_game_lost(game_data):
-    word = words[game_data["id"]]
-    max_attempts = 10
+def is_game_lost(id_, used_letters):
+    word = words[id_]
+    max_attempts = 6
     incorrect_counter = 0
-    guesses = game_data["guesses"]
+    guesses = used_letters
     for character in guesses:
         if not character in word:
             incorrect_counter += 1
@@ -144,7 +150,7 @@ def is_game_lost(game_data):
 
 def start_game():
     id_ = random.randint(1, len(words))
-    game_data = {"id": id, "status": "start", "guesses": ""}
+    game_data = {"id": id_, "status": "start", "guesses": ""}
     word = words[id_]
     unsolved_word = ""
     for character in word:

@@ -17,11 +17,12 @@ class handler(BaseHTTPRequestHandler):
         if not dic.get("id"):
             game_data = start_game()
         else:
-            id_ = int(dic["id_"])
-            guessed_letter = dic["guessed_letter"]
-            used_letters = dic["used_letters"]
-            game_data = game_turn(id, guessed_letter, used_letters)
+            id_ = int(dic["id"])
+            guessed_letter = dic["guess"]
+            used_letters = dic["guesses"]
+            game_data = game_turn(id_, guessed_letter, used_letters)
         message = json.dumps(game_data)
+
         self.send_response(200)
         self.send_header("Content-type", "application/json")
         self.end_headers()
