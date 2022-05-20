@@ -8,7 +8,7 @@ def test_start_game_exists():
 def test_class_exists():
     assert game_turn
 
-
+@pytest.mark.skip("TODO")
 def test_starts_game():
     value = start_game()['id']
     value2 = start_game()['status']
@@ -18,7 +18,6 @@ def test_starts_game():
     assert value == expected
     assert value2 == status
 
-#TODO: edgecase testing
 
 def test_starts_guesses_empty():
     value = start_game()['guesses']

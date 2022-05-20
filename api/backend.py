@@ -4,7 +4,7 @@ from api.pygirl import start_game, game_turn
 import json
 
 # url = "http://localhost:3000/api/backend/"
-# url_vercel = "https://py-girl-self.vercel.app/api/backend/"
+# url_vercel = "https://pygirl-self.vercel.app/api/backend/"
 
 
 class handler(BaseHTTPRequestHandler):
@@ -19,7 +19,7 @@ class handler(BaseHTTPRequestHandler):
         else:
             id_ = int(dic["id"])
             guessed_letter = dic["guess"]
-            used_letters = dic["guesses"]
+            used_letters = dic.get("guesses","")
             game_data = game_turn(id_, guessed_letter, used_letters)
         message = json.dumps(game_data)
 
