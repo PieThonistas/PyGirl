@@ -1,8 +1,10 @@
-
 from http.server import BaseHTTPRequestHandler
 from urllib import parse
 from api.pygirl import start_game, game_turn
 import json
+
+# url = "http://localhost:3000/api/backend/"
+# url_vercel = "https://py-girl-self.vercel.app/api/backend/"
 
 
 class handler(BaseHTTPRequestHandler):
@@ -15,7 +17,7 @@ class handler(BaseHTTPRequestHandler):
         if not dic.get("id"):
             game_data = start_game()
         else:
-            id = int(dic["id"])
+            id_ = int(dic["id_"])
             guessed_letter = dic["guessed_letter"]
             used_letters = dic["used_letters"]
             game_data = game_turn(id, guessed_letter, used_letters)
