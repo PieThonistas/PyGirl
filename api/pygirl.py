@@ -116,7 +116,7 @@ def get_incorrect_guesses(id, guessed_letter, used_letters):
 def get_guesses_left(id_, guessed_letter):
     counter = 0
     word = words[id_]
-    max_attempts = 10
+    max_attempts = 6
     guesses_left = 0
 
     if guessed_letter not in word:
