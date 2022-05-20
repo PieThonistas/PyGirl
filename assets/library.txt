@@ -1,0 +1,8 @@
+
+ {
+    1: {"id": 1, "text": "_ _ _ _ _ _ _ _", "solution": "function"},
+    2: {"id": 2, "text": "_ _ _ _ _ _", "solution": "lambda"},
+    3: {"id": 3, "text": "_ _ _ _ _ _ _", "solution": "methods"},
+    4: {"id": 4, "text": "_ _ _ _ _", "solution": "tuple"},
+    5: {"id": 5, "text": "_ _ _ _ _ _ _ _ _ _ _", "solution": "bumbershoot"}
+}

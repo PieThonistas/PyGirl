@@ -7,6 +7,8 @@ ENV/
 .DS_Store
 .history
 vercel
+.venv
+.env
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -120,3 +122,4 @@ node_modules/
 
 # poetry
 poetry.lock
+.vercel
